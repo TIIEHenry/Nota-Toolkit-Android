@@ -1,0 +1,2 @@
+include ':app', ':recyclerhelper','tiiehenry-ktx'
+rootProject.name='Android-Nota-Toolkit'
