@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
 
 
     defaultConfig {
@@ -12,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
