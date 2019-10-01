@@ -2,11 +2,12 @@ rootProject.name = 'Android-Nota-Toolkit'
 
 def moduleMap = [
         "D:\\Android\\Projects\\": [
-                "Android-Nota-Toolkit": ["app",
-                                         "view-recyclerhelper",
-                                         "kt-android-ktx",
-                                         "io-encodehelper",
-                                         "io-filej",
+                "Android-Nota-Toolkit": [
+                        "app",
+                        "view-recyclerhelper",
+                        "kt-android-ktx",
+                        "io-encodehelper",
+                        "io-filej",
                 ],
         ]
 ]
