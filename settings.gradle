@@ -1,36 +1,7 @@
 rootProject.name = 'Android-Nota-Toolkit'
 
-def moduleMap = [
-        "D:\\Android\\Projects\\": [
-                "Android-Nota-Toolkit": [
-                        "app",
-                        "view-recyclerhelper",
-                        "kt-android-ktx",
-                        "io-encodehelper",
-                        "io-filej",
-                ],
-        ]
-]
-
-def importFromDir(Map<String, Object> map, String path) {
-    map.each { entry ->
-        if (entry.value instanceof String) {
-            include entry.key
-            project(':' + entry.key).projectDir = new File(path, entry.key + '\\' + entry.value)
-        } else {
-            entry.value.each { lib ->
-                def name = entry.key + "." + lib
-                include name
-                project(':' + name).projectDir = new File(path, entry.key + '\\' + lib)
-            }
-        }
-    }
-}
-
-def importFromMap(Map<String, Map<String, Object>> map) {
-    map.each { entry ->
-        importFromDir(entry.value, entry.key)
-    }
-}
-
-importFromMap(moduleMap)
+include ':app',
+        ':view-recyclerhelper',
+        ':kt-android-ktx',
+        ':io-encodehelper',
+        ':io-filej'
