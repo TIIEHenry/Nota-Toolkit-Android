@@ -3,13 +3,13 @@ package tiiehenry.ktx
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-fun Boolean.judge(f: (String) -> Unit) {
+/*fun Boolean.judge(f: (String) -> Unit) {
 
 }
 
 public inline fun <T, R> T.judge(block: (T) -> R): R {
     return block(this)
-}
+}*/
 
 fun <Boolean, R> Boolean.ifFalse(block: (Boolean) -> R) {
     if (this == false)
@@ -17,7 +17,7 @@ fun <Boolean, R> Boolean.ifFalse(block: (Boolean) -> R) {
 }
 
 fun <Boolean, R> Boolean.ifTrue(block: (Boolean) -> R) {
-    if (this == false)
+    if (this==true)
         block.invoke(this)
 }
 

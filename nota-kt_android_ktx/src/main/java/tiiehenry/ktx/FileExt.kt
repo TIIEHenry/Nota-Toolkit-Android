@@ -9,3 +9,7 @@ fun File.md5(): String {
     val bigInt = BigInteger(1, digest.digest(readBytes()))
     return bigInt.toString(16)
 }
+
+fun File.suffix(): String {
+    return path.substring(path.lastIndexOf(".") + 1)
+}
