@@ -1,4 +1,4 @@
-package tiiehenry.ktx
+package tiiehenry.ktx.lang
 
 fun Any?.asString(): String? {
     return this as? String?

@@ -1,4 +1,4 @@
-package tiiehenry.ktx
+package tiiehenry.ktx.io
 
 import java.io.File
 import java.math.BigInteger

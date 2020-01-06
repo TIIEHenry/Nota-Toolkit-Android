@@ -1,7 +1,4 @@
-package tiiehenry.ktx
-
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
+package tiiehenry.ktx.lang
 
 /*fun Boolean.judge(f: (String) -> Unit) {
 
