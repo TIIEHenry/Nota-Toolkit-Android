@@ -1,24 +1,44 @@
 package tiiehenry.ktx.lang
 
-/*fun Boolean.judge(f: (String) -> Unit) {
 
+inline fun <R> CharSequence.ifBlank(block: (CharSequence) -> R) {
+    if (this.isBlank())
+        block.invoke(this)
 }
 
-public inline fun <T, R> T.judge(block: (T) -> R): R {
-    return block(this)
-}*/
+inline fun <R> CharSequence.ifNotBlank(block: (CharSequence) -> R) {
+    if (this.isNotBlank())
+        block.invoke(this)
+}
 
-fun <Boolean, R> Boolean.ifFalse(block: (Boolean) -> R) {
+inline fun <R> CharSequence.ifEmpty(block: (CharSequence) -> R) {
+    if (this.isEmpty())
+        block.invoke(this)
+}
+
+inline fun <R> CharSequence.ifNotEmpty(block: (CharSequence) -> R) {
+    if (this.isNotEmpty())
+        block.invoke(this)
+}
+
+inline fun <R> Boolean.ifFalse(block: (Boolean) -> R) {
     if (this == false)
         block.invoke(this)
 }
 
-fun <Boolean, R> Boolean.ifTrue(block: (Boolean) -> R) {
-    if (this==true)
+inline fun <R> Boolean.ifTrue(block: (Boolean) -> R) {
+    if (this)
         block.invoke(this)
 }
 
-inline fun Any?.ifNull(block: () -> Unit) {
-    if (this == null)
-        block.invoke()
+//@Deprecated("no auto infer", ReplaceWith("if (v == null) block"))
+inline fun <T, R> T.ifNull(v: Any?, block: (T) -> R) {
+    if (v == null)
+        block.invoke(this)
+}
+
+//@Deprecated("no auto infer", ReplaceWith("if (v != null) block"))
+inline fun <T, R> T.ifNotNull(v: Any?, block: (T) -> R) {
+    if (v != null)
+        block.invoke(this)
 }
