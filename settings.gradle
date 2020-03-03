@@ -1,7 +1,9 @@
 rootProject.name = 'Android-Nota-Toolkit'
 
 include ':app',
-        ':view-recyclerhelper',
-        ':kt-android-ktx',
-        ':io-encodehelper',
-        ':io-filej'
+        ':nota-base',
+        ':nota-fragment',
+        ':nota-view_recyclerhelper',
+        ':nota-kt_android-ktx',
+        ':nota-io_encodehelper',
+        ':nota-io_filej'

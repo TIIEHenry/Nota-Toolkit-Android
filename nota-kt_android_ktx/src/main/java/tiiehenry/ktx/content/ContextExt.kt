@@ -1,14 +1,16 @@
 package tiiehenry.ktx.content
 
 import android.content.Context
-import android.os.Message
 import android.util.DisplayMetrics
-import android.util.Log
 import android.util.TypedValue
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.annotation.LayoutRes
+import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat
-import nota.android.toolkit.tiiehenry_ktx.R
 
 fun Context.getWidth(): Int {
     val wm = getSystemService(Context.WINDOW_SERVICE) as WindowManager
@@ -49,4 +51,12 @@ fun Context.toast(a: Any) {
 
 fun Context.toast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.inflate(@LayoutRes resource: Int, root: ViewGroup?): View {
+    return LayoutInflater.from(this).inflate(resource, root)
+}
+
+fun Context.inflate(@LayoutRes resource: Int,root: ViewGroup?, attachToRoot: Boolean): View {
+    return LayoutInflater.from(this).inflate(resource, root, attachToRoot)
 }
