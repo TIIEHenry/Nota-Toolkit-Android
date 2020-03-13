@@ -14,3 +14,15 @@ fun View.inflate(@LayoutRes resource: Int, root: ViewGroup?): View? {
 fun View.inflate(@LayoutRes resource: Int, root: ViewGroup?, attachToRoot: Boolean): View? {
     return LayoutInflater.from(context).inflate(resource, root, attachToRoot)
 }
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}

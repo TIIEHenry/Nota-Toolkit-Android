@@ -179,7 +179,7 @@ public class Zipl {
         ZipEntry entry;
         while ((entry = zis.getNextEntry()) != null) {
             String entryName = entry.getName();
-            if (entryName.startsWith(name)) {
+            if (entryName.startsWith(name+"/")) {
                 files.put(entryName, new File(outPath, entryName.substring(name.length())));
             }
         }
