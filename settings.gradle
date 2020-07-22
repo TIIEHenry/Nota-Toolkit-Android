@@ -1,9 +1,9 @@
-rootProject.name = 'Android-Nota-Toolkit'
+rootProject.name = 'Nota-Toolkit-Android'
 
-include ':app',
-        ':nota-base',
-        ':nota-fragment',
-        ':nota-view_recyclerhelper',
-        ':nota-kt_android-ktx',
-        ':nota-io_encodehelper',
-        ':nota-io_filej'
+include ':android-base',
+        ':android-fragment',
+        ':android-ktx',
+        ':android-view-loadingview',
+        ':android-view-recyclerhelper'
+
+includeBuild "../Nota-Toolkit"

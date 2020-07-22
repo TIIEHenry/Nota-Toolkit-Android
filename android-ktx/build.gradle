@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+group "tiiehenry.nota.toolkit"
+version "1.0"
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly 'androidx.core:core-ktx:1.2.0'
+    compileOnly 'androidx.appcompat:appcompat:1.1.0'
+    compileOnly 'androidx.fragment:fragment:1.2.3'
+    compileOnly "androidx.lifecycle:lifecycle-runtime:2.2.0"
+    compileOnly 'androidx.viewpager:viewpager:1.0.0'
+    compileOnly 'androidx.recyclerview:recyclerview:1.1.0'
+    compileOnly 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    compileOnly 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+}
