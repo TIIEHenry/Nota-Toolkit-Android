@@ -13,3 +13,6 @@ fun File.md5(): String {
 fun File.suffix(): String {
     return path.substring(path.lastIndexOf(".") + 1)
 }
+fun File.child(name:String): File {
+    return File(this,name)
+}

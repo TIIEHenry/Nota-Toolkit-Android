@@ -38,7 +38,7 @@ inline fun <T, R> T.ifNull(v: Any?, block: (T) -> R) {
 }
 
 //@Deprecated("no auto infer", ReplaceWith("if (v != null) block"))
-inline fun <T, R> T.ifNotNull(v: Any?, block: (T) -> R) {
+inline fun <T, R> T.ifNonNull(v: Any?, block: (T) -> R) {
     if (v != null)
         block.invoke(this)
 }

@@ -136,7 +136,7 @@ public abstract class BaseSpinnerAdapter<T> extends BaseAdapter implements Spinn
             return data;
         }
 
-        public View getView(int viewId) {
+        public  <V extends View> V  getView(int viewId) {
             // 先从缓存中找，找打的话则直接返回
             // 如果找不到则 findViewById ，再把结果存入缓存中
             View view = viewSparseArray.get(viewId);
@@ -144,7 +144,7 @@ public abstract class BaseSpinnerAdapter<T> extends BaseAdapter implements Spinn
                 view = getRootView().findViewById(viewId);
                 viewSparseArray.put(viewId, view);
             }
-            return view;
+            return (V) view;
         }
 
         public View getRootView() {

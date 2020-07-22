@@ -268,7 +268,7 @@ public class Zipl {
         append.close();
     }
 
-    public static interface OnUpdateListener {
+    public interface OnUpdateListener {
         void onUpdate(String name, File out);
     }
 }

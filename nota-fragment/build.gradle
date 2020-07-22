@@ -24,6 +24,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    compileOnly 'androidx.fragment:fragment:1.2.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    compileOnly 'androidx.fragment:fragment:1.2.5'
 }

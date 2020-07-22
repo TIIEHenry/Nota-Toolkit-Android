@@ -37,7 +37,7 @@ fun Context.getColorCompat(id: Int): Int {
 }
 
 fun Context.getDimen(id: Int): Int {
-    return resources.getDimensionPixelSize(id);
+    return resources.getDimensionPixelSize(id)
 }
 
 
