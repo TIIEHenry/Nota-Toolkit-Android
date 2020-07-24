@@ -7,3 +7,9 @@ include ':android-base',
         ':android-view-recyclerhelper'
 
 includeBuild "../Nota-Toolkit"
+
+
+rootProject.children.each {
+    /**设置构建脚本文件名*/
+    it.buildFileName = "nt-"+it.name + '.gradle'
+}
