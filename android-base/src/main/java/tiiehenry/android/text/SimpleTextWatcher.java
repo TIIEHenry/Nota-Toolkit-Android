@@ -1,4 +1,4 @@
-package tiiehenry.android.widget;
+package tiiehenry.android.text;
 
 import android.text.Editable;
 import android.text.TextWatcher;
