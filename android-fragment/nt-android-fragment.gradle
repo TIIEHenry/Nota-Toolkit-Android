@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 //apply plugin: 'kotlin-android-extensions'
 
 group "tiiehenry.nota.toolkit"
@@ -25,10 +24,15 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation project(":android-base")
+//    implementation 'tiiehenry.nota.toolkit:android-base:+'
     implementation 'androidx.fragment:fragment:1.2.5'
 }

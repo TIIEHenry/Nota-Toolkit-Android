@@ -1,100 +1,46 @@
-package tiiehenry.android.fragment;
-
-import android.view.ViewGroup;
+package tiiehenry.android.fragment.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class BaseFragmentAdapter<T> extends FragmentPagerAdapter {
+public abstract class BaseFragmentAdapter<IADAPTER extends BaseFragmentAdapter
+        , DATATYPE> extends FragmentPagerAdapter implements IFragmentAdapter<IADAPTER, DATATYPE> {
 
     private final FragmentManager fragmentManager;
-    private List<T> dataList = new ArrayList<>();
+    private List<DATATYPE> dataList = new ArrayList<>();
 
 
     public BaseFragmentAdapter(FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        this.fragmentManager=fm;
+        this.fragmentManager = fm;
     }
 
-    public BaseFragmentAdapter(FragmentManager fm, List<T> items) {
+    public BaseFragmentAdapter(FragmentManager fm, List<DATATYPE> items) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        this.fragmentManager=fm;
-        setDataList(items);
+        this.fragmentManager = fm;
+        dataList.addAll(items);
     }
 
-    public BaseFragmentAdapter(FragmentManager fm, T[] items) {
+    public BaseFragmentAdapter(FragmentManager fm, DATATYPE[] items) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        this.fragmentManager=fm;
-        setDataList(Arrays.asList(items));
+        this.fragmentManager = fm;
+        dataList.addAll(Arrays.asList(items));
     }
 
-    public List<T> getDataList() {
+    @Override
+    public List<DATATYPE> getDataList() {
         return dataList;
     }
 
-    public BaseFragmentAdapter<T> setDataList(List<T> items) {
-        if (items != null && items.size() > 0) {
-            dataList.clear();
-            dataList.addAll(items);
-            notifyDataSetChanged();
-        }
-        return this;
-    }
-
-    public void clear() {
-        dataList.clear();
-        notifyDataSetChanged();
-    }
-
-    public void add(@NonNull T item) {
-        dataList.add(item);
-        notifyDataSetChanged();
-    }
-
-    public void addAll(@NonNull List<T> items) {
-        if (items.size() > 0) {
-            dataList.addAll(items);
-            notifyDataSetChanged();
-        }
-    }
-
-    public boolean remove(@NonNull T item) {
-        boolean b = dataList.remove(item);
-        notifyDataSetChanged();
-        return b;
-    }
-
-    public boolean removeAll(@NonNull List<T> item) {
-        boolean b = dataList.removeAll(item);
-        notifyDataSetChanged();
-        return b;
-    }
-
-    public boolean contains(@NonNull T item) {
-        return dataList.contains(item);
-    }
-
-    public boolean contains(Fragment item) {
-        for (int i = 0; i < dataList.size(); i++) {
-            if (getItem(i)==item)
-                return true;
-        }
-        return false;
-    }
-
-    public int getPosition(@NonNull T item) {
-        return dataList.indexOf(item);
-    }
     public int getPosition(@NonNull Fragment item) {
         for (int i = 0; i < dataList.size(); i++) {
-            if (getItem(i)==item)
+            if (getItem(i) == item)
                 return i;
         }
         return -1;
@@ -102,7 +48,7 @@ public abstract class BaseFragmentAdapter<T> extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return dataList.size();
+        return getDataCount();
     }
 
     @NonNull

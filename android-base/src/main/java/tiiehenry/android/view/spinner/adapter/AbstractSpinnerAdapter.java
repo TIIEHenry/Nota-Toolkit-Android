@@ -49,7 +49,7 @@ public abstract class AbstractSpinnerAdapter<IADAPTER extends AbstractSpinnerAda
 
     @Override
     public int getCount() {
-        return getItemCount();
+        return getDataCount();
     }
 
     @Override
@@ -60,7 +60,7 @@ public abstract class AbstractSpinnerAdapter<IADAPTER extends AbstractSpinnerAda
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         SpinnerViewHolder holder = onCreateViewHolder(parent, position);
-        DATATYPE data = getItem(position);
+        DATATYPE data = getData(position);
 //        holder.setData(data);
         bindData(holder, data, position);
         holder.getItemView().setTag(holder);
@@ -70,7 +70,7 @@ public abstract class AbstractSpinnerAdapter<IADAPTER extends AbstractSpinnerAda
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         SpinnerViewHolder holder = onCreateDropDownViewHolder(parent, position);
-        DATATYPE data = getItem(position);
+        DATATYPE data = getData(position);
 //        holder.setData(data);
         bindDropDownData(holder, data, position);
         holder.getItemView().setTag(holder);
@@ -84,7 +84,7 @@ public abstract class AbstractSpinnerAdapter<IADAPTER extends AbstractSpinnerAda
 
 
     @Override
-    public DATATYPE getItem(int position) {
+    public DATATYPE getData(int position) {
         return getDataList().get(position);
     }
 }

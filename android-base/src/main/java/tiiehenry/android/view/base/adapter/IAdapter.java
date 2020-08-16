@@ -1,17 +1,12 @@
 package tiiehenry.android.view.base.adapter;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import tiiehenry.android.view.base.holder.IViewHolder;
-import tiiehenry.android.view.base.holder.OnItemClickListener;
-import tiiehenry.android.view.base.holder.OnItemLongClickListener;
-
-public interface IAdapter<IADAPTER, DATATYPE, VH extends IViewHolder> {
+public interface IAdapter<IADAPTER, DATATYPE> {
 
 
     /**
@@ -27,11 +22,15 @@ public interface IAdapter<IADAPTER, DATATYPE, VH extends IViewHolder> {
     @NonNull
     IADAPTER getInstance();
 
-    @NonNull
-    IADAPTER setOnItemClickListener(@Nullable OnItemClickListener<DATATYPE> listener);
-
-    @NonNull
-    IADAPTER setOnItemLongClickListener(@Nullable OnItemLongClickListener<DATATYPE> listener);
+    /**
+     * 获取元素位置
+     *
+     * @param item
+     * @return 不存在：-1
+     */
+    default int getPosition(@NonNull DATATYPE item) {
+        return getDataList().indexOf(item);
+    }
 
     /**
      * 获取列表项
@@ -39,16 +38,20 @@ public interface IAdapter<IADAPTER, DATATYPE, VH extends IViewHolder> {
      * @param position
      * @return
      */
-    default DATATYPE getItem(int position) {
+    default DATATYPE getData(int position) {
         return getDataList().get(position);
     }
 
-    default int getItemCount() {
+    default int getDataCount() {
         return getDataList().size();
     }
 
     default boolean isEmpty() {
-        return getItemCount() == 0;
+        return getDataCount() == 0;
+    }
+
+    default boolean contains(@NonNull DATATYPE item) {
+        return getDataList().contains(item);
     }
 
     /**
@@ -143,8 +146,8 @@ public interface IAdapter<IADAPTER, DATATYPE, VH extends IViewHolder> {
      * @return
      */
     default IADAPTER remove(DATATYPE item) {
-        int index=getDataList().indexOf(item);
-        if (index!=-1){
+        int index = getPosition(item);
+        if (index != -1) {
             return remove(index);
         }
         return getInstance();
@@ -170,6 +173,17 @@ public interface IAdapter<IADAPTER, DATATYPE, VH extends IViewHolder> {
      */
     default IADAPTER remove(@NonNull DATATYPE[] array) {
         return remove(Arrays.asList(array));
+    }
+
+    /**
+     * 清空数据
+     *
+     * @return
+     */
+    default IADAPTER clear() {
+        getDataList().clear();
+        getNotifier().notifyDataSetChanged();
+        return getInstance();
     }
 
     /**

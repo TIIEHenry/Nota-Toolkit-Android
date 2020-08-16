@@ -90,7 +90,7 @@ public abstract class AbstractRecyclerAdapter<IADAPTER extends AbstractRecyclerA
             holder.getItemView().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mClickListener.onItemClick(holder.getItemView(), getItem(holder.getLayoutPosition()), holder.getLayoutPosition());
+                    mClickListener.onItemClick(holder.getItemView(), getData(holder.getLayoutPosition()), holder.getLayoutPosition());
                 }
             });
         }
@@ -98,7 +98,7 @@ public abstract class AbstractRecyclerAdapter<IADAPTER extends AbstractRecyclerA
             holder.getItemView().setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    mLongClickListener.onItemLongClick(holder.getItemView(), getItem(holder.getLayoutPosition()), holder.getLayoutPosition());
+                    mLongClickListener.onItemLongClick(holder.getItemView(), getData(holder.getLayoutPosition()), holder.getLayoutPosition());
                     return true;
                 }
             });
@@ -138,13 +138,18 @@ public abstract class AbstractRecyclerAdapter<IADAPTER extends AbstractRecyclerA
 
 
     @Override
-    public int getItemCount() {
+    public int getDataCount() {
         return getDataList().size();
     }
 
     @Override
     public List<DATATYPE> getDataList() {
         return mData;
+    }
+
+    @Override
+    public int getItemCount() {
+        return getDataCount();
     }
 
     @NonNull

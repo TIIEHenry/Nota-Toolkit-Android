@@ -1,4 +1,4 @@
-package tiiehenry.android.fragment;
+package tiiehenry.android.fragment.adapter;
 
 /*
  * Copyright 2018 The Android Open Source Project
