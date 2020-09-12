@@ -82,6 +82,10 @@ public abstract class AbstractSpinnerAdapter<IADAPTER extends AbstractSpinnerAda
         return mData;
     }
 
+    @Override
+    public Object getItem(int position) {
+        return getData(position);
+    }
 
     @Override
     public DATATYPE getData(int position) {

@@ -31,3 +31,5 @@ dependencies {
     compileOnly 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
 }
+
+apply from: "../properties/maven-publish.gradle"

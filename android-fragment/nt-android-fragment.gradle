@@ -36,3 +36,5 @@ dependencies {
 //    implementation 'tiiehenry.nota.toolkit:android-base:+'
     implementation 'androidx.fragment:fragment:1.2.5'
 }
+
+apply from: "../properties/maven-publish.gradle"
