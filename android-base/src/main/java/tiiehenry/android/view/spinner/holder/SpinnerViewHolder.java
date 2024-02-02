@@ -9,7 +9,7 @@ public class SpinnerViewHolder implements ISpinnerViewHolder<SpinnerViewHolder> 
     @NonNull
     private final View itemView;
 
-    private SparseArray<View> mViews;
+    private final SparseArray<View> mViews;
 
     public SpinnerViewHolder(View itemView) {
         this.itemView = itemView;

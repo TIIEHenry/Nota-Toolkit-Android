@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder implements IRecyclerViewHolder<RecyclerViewHolder> {
 
-    private SparseArray<View> mViews;
+    private final SparseArray<View> mViews;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);

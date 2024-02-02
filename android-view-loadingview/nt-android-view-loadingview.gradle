@@ -6,11 +6,13 @@ group "tiiehenry.nota.toolkit"
 version "1.0"
 
 android {
-    compileSdkVersion 29
+    namespace = "tiiehenry.android.view.control"
+
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
 
@@ -31,4 +33,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
-apply from: "../properties/maven-publish.gradle"
+//apply from: "../properties/maven-publish.gradle"

@@ -9,6 +9,7 @@ fun Any?.trySafe(f: (Any) -> Unit) {
             e.printStackTrace()
         }
 }
+
 inline fun <T> T.tryApply(block: T.() -> Unit): T {
     if (this != null)
         try {
@@ -22,7 +23,7 @@ inline fun <T> T.tryApply(block: T.() -> Unit): T {
 inline fun <T, R> T.tryLet(block: (T) -> R): R? {
     if (this != null)
         try {
-           return block(this)
+            return block(this)
         } catch (e: Exception) {
             e.printStackTrace()
         }

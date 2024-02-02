@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="flowtag_tag_simple_normal_stroke">#ffeeeeee</color>
+    <color name="flowtag_tag_simple_normal_solid">#ffffff</color>
+    <color name="flowtag_tag_simple_selected_stroke">#ff444444</color>
+    <color name="flowtag_tag_simple_selected_solid">#ffffffff</color>
+</resources>

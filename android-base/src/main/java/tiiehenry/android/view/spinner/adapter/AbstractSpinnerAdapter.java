@@ -19,7 +19,7 @@ import tiiehenry.android.view.spinner.holder.SpinnerViewHolder;
 public abstract class AbstractSpinnerAdapter<IADAPTER extends AbstractSpinnerAdapter
         , DATATYPE> extends BaseAdapter
         implements ISpinnerAdapter<IADAPTER, DATATYPE, SpinnerViewHolder> {
-    private List<DATATYPE> mData = new ArrayList<>();
+    private final List<DATATYPE> mData = new ArrayList<>();
 
     public AbstractSpinnerAdapter() {
         super();

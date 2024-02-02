@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:enterFadeDuration="0" android:exitFadeDuration="700">
+	
+	<item android:drawable="@drawable/searchview_layout_bg_normal" android:state_window_focused="false" />
+	<item android:drawable="@drawable/searchview_layout_bg_focused" android:state_focused="true" />
+</selector>

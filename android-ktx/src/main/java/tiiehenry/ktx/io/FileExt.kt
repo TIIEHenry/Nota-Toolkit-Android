@@ -10,9 +10,6 @@ fun File.md5(): String {
     return bigInt.toString(16)
 }
 
-fun File.suffix(): String {
-    return path.substring(path.lastIndexOf(".") + 1)
-}
 fun File.child(name:String): File {
     return File(this,name)
 }

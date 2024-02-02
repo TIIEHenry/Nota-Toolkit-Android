@@ -2,12 +2,16 @@
 
 buildscript {
 
-    ext.kotlin_version = "1.3.72"
-    ext.build_gradle_version = '3.6.3'
+    ext.kotlin_version = "1.6.10"
+    ext.build_gradle_version = '8.1.0'
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://maven.fabric.io/public' }
         google()
-        jcenter()
-
+        mavenLocal()
+        mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$build_gradle_version"
@@ -17,15 +21,7 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-
-    }
-}
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
+//apply from: "properties/maven-publish.gradle"

@@ -36,6 +36,7 @@ public abstract class SimpleIdRecyclerAdapter<T> extends InflateRecyclerAdapter<
      * @param viewType
      * @return layout
      */
+    @Override
     protected View inflateItemLayout(ViewGroup parent, int viewType) {
         return inflateView(parent, layoutId);
     }

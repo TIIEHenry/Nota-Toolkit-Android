@@ -26,21 +26,6 @@ fun Context.getHeight(): Int {
     return outMetrics.heightPixels
 }
 
-fun Context.getAttrColor(id: Int): Int {
-    val typedValue = TypedValue()
-    theme.resolveAttribute(id, typedValue, true)
-    return typedValue.data
-}
-
-fun Context.getColorCompat(id: Int): Int {
-    return ContextCompat.getColor(this, id)
-}
-
-fun Context.getDimen(id: Int): Int {
-    return resources.getDimensionPixelSize(id)
-}
-
-
 fun Context.toast(id: Int) {
     toast(getString(id))
 }

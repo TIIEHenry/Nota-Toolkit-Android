@@ -108,7 +108,7 @@ public abstract class FragmentNoStatePagerAdapter extends PagerAdapter {
     private final int mBehavior;
     private FragmentTransaction mCurTransaction = null;
 
-    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private final ArrayList<Fragment> mFragments = new ArrayList<>();
     private Fragment mCurrentPrimaryItem = null;
     private boolean mExecutingFinishUpdate;
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="flowtag_tag_simple_normal_stroke">@color/grey_900</color>
+    <color name="flowtag_tag_simple_normal_solid">@color/grey_800</color>
+    <color name="flowtag_tag_simple_selected_stroke">@color/grey_500</color>
+    <color name="flowtag_tag_simple_selected_solid">@color/grey_800</color>
+</resources>

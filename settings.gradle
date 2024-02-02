@@ -3,7 +3,9 @@ rootProject.name = 'Nota-Toolkit-Android'
 include ':android-base',
         ':android-fragment',
         ':android-ktx',
-        ':android-view-loadingview'
+        ':android-view-loadingview',
+        ':android-view-searchview',
+        ':android-view-flowtag'
 
 includeBuild "../Nota-Toolkit"
 
@@ -11,4 +13,19 @@ includeBuild "../Nota-Toolkit"
 rootProject.children.each {
     /**设置构建脚本文件名*/
     it.buildFileName = "nt-"+it.name + '.gradle'
+}
+
+
+dependencyResolutionManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+        maven { url "https://clojars.org/repo/" }
+        maven { url "https://jitpack.io" }
+        mavenLocal()
+        mavenCentral()
+        google()
+    }
 }

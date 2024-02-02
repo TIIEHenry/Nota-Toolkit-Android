@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:enterFadeDuration="0" android:exitFadeDuration="100">
+	
+	<item android:drawable="@drawable/flowtag_tag_simple_selector_normal" android:state_selected="false" />
+	<item android:drawable="@drawable/flowtag_tag_simple_selector_selected" android:state_focused="true" />
+	<item android:drawable="@drawable/flowtag_tag_simple_selector_selected" android:state_selected="true" />
+</selector>

@@ -152,6 +152,7 @@ public abstract class AbstractRecyclerAdapter<IADAPTER extends AbstractRecyclerA
         return getDataCount();
     }
 
+
     @NonNull
     @Override
     public INotifier getNotifier() {

@@ -1,17 +1,9 @@
 apply plugin: 'maven-publish'
 
-def sourceJar(String name, String path) {
-    return tasks.create("sourceJar_${name}", Jar) {
-        group = "publishing"
-        description = "package ${name} source to jar"
-//        from "$path/src/main/java"
-//        from "$path/src/main/kotlin"
-        from android.sourceSets.main.java.srcDirs
 
-        println "sourceJar:$name"
-        destinationDir = file("$path/build/libs/")
-        classifier = 'sources'
-    }
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier = "sources"
 }
 
 project.afterEvaluate {
@@ -23,10 +15,10 @@ project.afterEvaluate {
                 version project.version
 
                 println "publish:" + project.name + ":" + project.version
-                artifact bundleReleaseAar
-//                artifact("build/outputs/aar/${project.name}-release.aar")
-
-                artifact sourceJar(project.name, project.name)
+                // 上传 AAR 包
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                // 向 Maven 仓库中上传源码
+                artifact sourceJar
                 pom.withXml {
                     //在pom.xml添加依赖关系
                     def dependenciesNode = asNode().appendNode('dependencies')
@@ -49,3 +41,4 @@ project.afterEvaluate {
         }
     }
 }
+

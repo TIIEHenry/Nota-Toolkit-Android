@@ -13,7 +13,7 @@ public abstract class BaseFragmentAdapter<IADAPTER extends BaseFragmentAdapter
         , DATATYPE> extends FragmentPagerAdapter implements IFragmentAdapter<IADAPTER, DATATYPE> {
 
     private final FragmentManager fragmentManager;
-    private List<DATATYPE> dataList = new ArrayList<>();
+    private final List<DATATYPE> dataList = new ArrayList<>();
 
 
     public BaseFragmentAdapter(FragmentManager fm) {

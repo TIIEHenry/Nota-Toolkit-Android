@@ -17,7 +17,7 @@ import java.util.List;
 public abstract class DynamicFragmentStateAdapter<IADAPTER extends DynamicFragmentStateAdapter
         , DATATYPE> extends FragmentNoStatePagerAdapter implements IFragmentAdapter<IADAPTER, DATATYPE> {
 
-    private List<DATATYPE> dataList = new ArrayList<>();
+    private final List<DATATYPE> dataList = new ArrayList<>();
 
 
     public DynamicFragmentStateAdapter(@NonNull FragmentManager fm) {
