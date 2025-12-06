@@ -1,3 +1,26 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { setUrl("https://maven.aliyun.com/repository/jcenter") }
+        maven { setUrl("https://maven.aliyun.com/repository/google") }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url "https://jitpack.io" }
+    }
+}
+
 rootProject.name = 'Nota-Toolkit-Android'
 
 include ':android-base',
@@ -7,25 +30,6 @@ include ':android-base',
         ':android-view-searchview',
         ':android-view-flowtag'
 
-includeBuild "../Nota-Toolkit"
-
-
-rootProject.children.each {
-    /**设置构建脚本文件名*/
-    it.buildFileName = "nt-"+it.name + '.gradle'
-}
-
-
-dependencyResolutionManagement {
-    repositories {
-        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
-        maven { url 'https://maven.aliyun.com/repository/google/' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
-        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
-        maven { url "https://clojars.org/repo/" }
-        maven { url "https://jitpack.io" }
-        mavenLocal()
-        mavenCentral()
-        google()
-    }
-}
+include ':io-encodedetector',
+        ':io-encodehelper',
+        ':io-filej'

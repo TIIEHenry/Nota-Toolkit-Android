@@ -1,18 +1,16 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
 
 group "tiiehenry.nota.toolkit"
 version "1.0"
 
 android {
-    namespace = "tiiehenry.android.view.control"
+    namespace = "tiiehenry.android.view.flowtag"
 
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
 
@@ -26,11 +24,15 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.annotation:annotation:1.9.1"
 }
 
 apply from: "../properties/maven-publish.gradle"

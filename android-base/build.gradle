@@ -1,18 +1,17 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'kotlin-android-extensions'
+
 
 group "tiiehenry.nota.toolkit"
-version "1.1"
-
+version "1.2"
 
 android {
-    namespace = "tiiehenry.android.ktx"
+    namespace = "tiiehenry.android.base"
 
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
 
@@ -30,12 +29,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(":android-base")
-//    implementation 'tiiehenry.nota.toolkit:android-base:+'
-    implementation 'androidx.fragment:fragment:1.5.2'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
 }
+
 apply from: "../properties/maven-publish.gradle"

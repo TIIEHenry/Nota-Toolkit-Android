@@ -1,17 +1,17 @@
 apply plugin: 'com.android.library'
 
-
 group "tiiehenry.nota.toolkit"
-version "1.2"
+version "1.1"
+
 
 android {
-    namespace = "tiiehenry.android.base"
+    namespace = "tiiehenry.android.ktx"
 
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
 
@@ -26,16 +26,15 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation project(":android-base")
+//    implementation 'tiiehenry.nota.toolkit:android-base:+'
+    implementation 'androidx.fragment:fragment:1.8.9'
 }
-
 apply from: "../properties/maven-publish.gradle"

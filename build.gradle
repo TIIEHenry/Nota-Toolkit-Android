@@ -1,27 +1,9 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-buildscript {
-
-    ext.kotlin_version = "1.6.10"
-    ext.build_gradle_version = '8.1.0'
-    repositories {
-        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
-        maven { url 'https://maven.aliyun.com/repository/google/' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
-        maven { url 'https://maven.fabric.io/public' }
-        google()
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:$build_gradle_version"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+plugins {
+    id 'com.android.application' version '8.11.0' apply false
+    id 'com.android.library' version '8.11.0' apply false
+    id 'org.jetbrains.kotlin.android' version '2.2.0' apply false
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
-//apply from: "properties/maven-publish.gradle"
