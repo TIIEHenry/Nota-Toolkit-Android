@@ -126,7 +126,8 @@ public class TreeViewAdapter<T extends LayoutItemType, VH extends TreeViewViewHo
 
     @Override
     public void onBindViewHolder(@NonNull TreeViewViewHolder holder, int position) {
-        holder.itemView.setPadding(displayNodes.get(position).getHeight() * padding, 3, 3, 3);
+        TreeNode<T> treeNode = displayNodes.get(position);
+        holder.itemView.setPadding(treeNode.getHeight() * padding, 3, 3, 3);
         holder.itemView.setOnClickListener(v -> {
             TreeNode<T> selectedNode = displayNodes.get(holder.getLayoutPosition());
             TreeNodeListener<T, VH> listener = getBinder(selectedNode).getListener();
@@ -139,16 +140,7 @@ public class TreeViewAdapter<T extends LayoutItemType, VH extends TreeViewViewHo
             if (listener != null && listener.onClick(selectedNode, (VH) holder, this, position)) {
                 return;
             }
-            if (selectedNode.isLeaf()) {
-                return;
-            }
-            boolean isExpand = selectedNode.isExpand();
-            int positionStart = displayNodes.indexOf(selectedNode) + 1;
-            if (!isExpand) {
-                notifyItemRangeInserted(positionStart, addChildNodes(selectedNode, positionStart));
-            } else {
-                notifyItemRangeRemoved(positionStart, removeChildNodes(selectedNode, true));
-            }
+            performToggle(selectedNode);
         });
         holder.itemView.setOnLongClickListener(v -> {
             TreeNode<T> selectedNode = displayNodes.get(holder.getLayoutPosition());
@@ -159,10 +151,24 @@ public class TreeViewAdapter<T extends LayoutItemType, VH extends TreeViewViewHo
             return false;
         });
         for (TreeBinder<T, VH> viewBinder : viewBinders) {
-            if (viewBinder.getLayoutId() == displayNodes.get(position).getContent().getLayoutId()) {
-                viewBinder.bindView((VH) holder, position, displayNodes.get(position));
+            if (viewBinder.getLayoutId() == treeNode.getContent().getLayoutId()) {
+                viewBinder.bindView((VH) holder, position, treeNode);
             }
         }
+    }
+
+    public boolean performToggle(TreeNode<T> selectedNode) {
+        if (selectedNode.isLeaf()) {
+            return false;
+        }
+        boolean isExpand = selectedNode.isExpand();
+        int positionStart = displayNodes.indexOf(selectedNode) + 1;
+        if (!isExpand) {
+            notifyItemRangeInserted(positionStart, addChildNodes(selectedNode, positionStart));
+        } else {
+            notifyItemRangeRemoved(positionStart, removeChildNodes(selectedNode, true));
+        }
+        return !isExpand;
     }
 
     private int addChildNodes(TreeNode<T> pNode, int startIndex) {
