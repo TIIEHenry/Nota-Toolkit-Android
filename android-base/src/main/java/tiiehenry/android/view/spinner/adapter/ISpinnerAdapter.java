@@ -12,7 +12,7 @@ import tiiehenry.android.view.spinner.holder.ISpinnerViewHolder;
 
 public interface ISpinnerAdapter<IADAPTER extends ISpinnerAdapter
         , DATATYPE
-        , VH extends ISpinnerViewHolder>
+        , ISpinnerViewHolder>
         extends IAdapter<IADAPTER, DATATYPE>, IAllChangedNotifier {
 
 

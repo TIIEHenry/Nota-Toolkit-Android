@@ -5,7 +5,7 @@ version "1.1"
 
 
 android {
-    namespace = "tiiehenry.android.ktx"
+    namespace = "nota.android.ktx"
 
     compileSdk 36
 
@@ -37,4 +37,4 @@ dependencies {
 //    implementation 'tiiehenry.nota.toolkit:android-base:+'
     implementation 'androidx.fragment:fragment:1.8.9'
 }
-apply from: "../properties/maven-publish.gradle"
+apply from: "../gradle/maven-publish.gradle"

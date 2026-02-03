@@ -23,13 +23,12 @@ dependencyResolutionManagement {
 
 rootProject.name = 'Nota-Toolkit-Android'
 
-include ':android-base',
-        ':android-fragment',
-        ':android-ktx',
-        ':android-view-loadingview',
-        ':android-view-searchview',
-        ':android-view-flowtag'
+include ':android-common'
 
-include ':io-encodedetector',
-        ':io-encodehelper',
+include ':android-widget-loadingview',
+        ':android-widget-searchview',
+        ':android-widget-treeview',
+        ':android-widget-flowtag'
+
+include ':io-encodehelper',
         ':io-filej'

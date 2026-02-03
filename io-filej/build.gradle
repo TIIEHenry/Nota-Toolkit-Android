@@ -24,4 +24,4 @@ dependencies {
 }
 
 
-apply from: "../properties/maven-publish.gradle"
+apply from: "../gradle/maven-publish.gradle"
