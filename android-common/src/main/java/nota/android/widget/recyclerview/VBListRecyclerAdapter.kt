@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
 
 abstract class VBListRecyclerAdapter<D, VB : ViewBinding>(
-    val vbFactory: (LayoutInflater) -> VB,
+    val vbFactory: (LayoutInflater, ViewGroup, Boolean) -> VB,
     diffCallback: DiffUtil.ItemCallback<D>
 ) : ListAdapter<D, ViewBindingHolder<VB>>(diffCallback) {
 
@@ -15,6 +15,6 @@ abstract class VBListRecyclerAdapter<D, VB : ViewBinding>(
         parent: ViewGroup,
         viewType: Int
     ): ViewBindingHolder<VB> {
-        return ViewBindingHolder(vbFactory(LayoutInflater.from(parent.context)))
+        return ViewBindingHolder(vbFactory(LayoutInflater.from(parent.context), parent, false))
     }
 }
