@@ -7,7 +7,7 @@ version "1.0"
 android {
     namespace = "nota.android.widget"
 
-    compileSdk 36
+    compileSdkVersion 36
 
     defaultConfig {
         minSdkVersion 21

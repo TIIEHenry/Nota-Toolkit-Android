@@ -7,7 +7,7 @@ version "1.4"
 android {
     namespace = "nota.io.filej"
 
-    compileSdk 36
+    compileSdkVersion 36
 
     defaultConfig {
         minSdkVersion 21

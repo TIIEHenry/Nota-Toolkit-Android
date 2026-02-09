@@ -7,7 +7,7 @@ version "1.2"
 android {
     namespace = "nota.android.base"
 
-    compileSdk 36
+    compileSdkVersion 36
 
     defaultConfig {
         minSdkVersion 21
