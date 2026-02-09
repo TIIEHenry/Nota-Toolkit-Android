@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
 }
 
 group "tiiehenry.nota.toolkit"
@@ -9,13 +8,11 @@ version "1.0"
 android {
     namespace = "nota.android"
 
-    compileSdk 36
+    compileSdkVersion 36
 
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 36
-
-        archivesBaseName = 'nota-android-common'
 
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -24,9 +21,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-    kotlinOptions {
-        jvmTarget = '17'
+    kotlin {
+        compilerOptions {
+            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
+        }
     }
     buildFeatures {
         viewBinding true
