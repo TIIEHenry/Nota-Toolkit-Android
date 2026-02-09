@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import nota.android.widget.R;
+import nota.android.widget.flowtag.R;
 import nota.android.widget.flowtag.adapter.BaseTagAdapter;
 import nota.android.widget.flowtag.adapter.SimpleTagAdapter;
 

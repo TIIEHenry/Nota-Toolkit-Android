@@ -15,8 +15,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import nota.android.widget.R;
-
 public class SearchLayout extends FrameLayout {
     private EditText editSearch;
     private ImageView searchClearImgv;

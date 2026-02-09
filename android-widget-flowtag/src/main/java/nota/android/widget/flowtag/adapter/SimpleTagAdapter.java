@@ -3,7 +3,7 @@ package nota.android.widget.flowtag.adapter;
 import android.content.Context;
 import android.view.View;
 
-import nota.android.widget.R;
+import nota.android.widget.flowtag.R;
 
 public class SimpleTagAdapter extends BaseTagAdapter<String, TagViewHolder> {
 

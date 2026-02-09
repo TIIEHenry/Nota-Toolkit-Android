@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import kotlin.math.abs
-
+import nota.android.widget.loadingview.R
 /**
  * @author <a href="mailto:1806968131@qq.com">TIIEHenry</a>
  */
