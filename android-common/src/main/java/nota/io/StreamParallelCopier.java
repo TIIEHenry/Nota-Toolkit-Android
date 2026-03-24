@@ -48,6 +48,7 @@ public class StreamParallelCopier {
                         }
                         outputStream.write(dataItem.array, 0, dataItem.len);
                         dataItem.written = true;
+                        onBytesWritten(dataItem.len);
                     }
                 } catch (IOException | InterruptedException e) {
                     onException(e);
@@ -58,6 +59,10 @@ public class StreamParallelCopier {
         };
         writeThread.setPriority(Thread.MAX_PRIORITY);
         writeThread.start();
+    }
+
+    protected void onBytesWritten(int len) {
+
     }
 
     private void startRead(final ArrayBlockingQueue<DataItem> arrayBlockingQueue, final DataItem[] dataItems) {
@@ -81,6 +86,7 @@ public class StreamParallelCopier {
                         if (read == -1) {
                             break;
                         }
+                        onBytesRead(read);
                         arrayBlockingQueue.put(dataItem);
                         i = (i + 1) % length;
                     }
@@ -97,6 +103,10 @@ public class StreamParallelCopier {
         };
         readThread.setPriority(Thread.MAX_PRIORITY);
         readThread.start();
+    }
+
+    protected void onBytesRead(int read) {
+
     }
 
     public void startAndWait() throws Exception {
