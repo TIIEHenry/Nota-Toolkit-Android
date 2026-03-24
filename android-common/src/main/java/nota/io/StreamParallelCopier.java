@@ -12,13 +12,13 @@ import java.util.concurrent.CountDownLatch;
 public class StreamParallelCopier {
     private final InputStream inputStream;
     private final OutputStream outputStream;
-    private boolean finished;
+    private volatile boolean finished;
     private Exception exception;
     private CountDownLatch countDownLatch;
     private int dataItemCount;
     private Thread writeThread;
     private Thread readThread;
-    private boolean canceled = false;
+    private volatile boolean canceled = false;
     private ArrayBlockingQueue<DataItem> arrayBlockingQueue;
 
     public StreamParallelCopier(final InputStream inputStream, final OutputStream outputStream) {
@@ -47,6 +47,7 @@ public class StreamParallelCopier {
                             throw new InterruptedException();
                         }
                         outputStream.write(dataItem.array, 0, dataItem.len);
+                        dataItem.written = true;
                     }
                 } catch (IOException | InterruptedException e) {
                     onException(e);
@@ -68,15 +69,19 @@ public class StreamParallelCopier {
                     int i = 0;
                     while (!finished) {
                         DataItem dataItem = dataItems[i];
+                        while (!dataItem.written && !canceled && !finished) {
+                            Thread.sleep(10);
+                        }
                         if (canceled) {
                             throw new InterruptedException();
                         }
-                        int read = inputStream.read(dataItems[i].array);
+                        dataItem.written = false;
+                        int read = inputStream.read(dataItem.array);
                         dataItem.len = read;
                         if (read == -1) {
                             break;
                         }
-                        arrayBlockingQueue.put(dataItems[i]);
+                        arrayBlockingQueue.put(dataItem);
                         i = (i + 1) % length;
                     }
                     if (!finished) {
@@ -150,6 +155,7 @@ public class StreamParallelCopier {
     }
 
     protected static class DataItem {
+        public volatile boolean written = true;//标记是否被消费
         byte[] array;
         int len;
 
