@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="grey_500">#FF9E9E9E</color>
+    <color name="grey_800">#FF424242</color>
+    <color name="grey_900">#FF212121</color>
     <color name="flowtag_tag_simple_normal_stroke">#ffeeeeee</color>
     <color name="flowtag_tag_simple_normal_solid">#ffffff</color>
     <color name="flowtag_tag_simple_selected_stroke">#ff444444</color>

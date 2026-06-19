@@ -36,7 +36,9 @@ import java.util.List;
  * ignore html or xml style markup that could otherwise obscure the content.
  * <p>
  * @stable ICU 3.4
+ * @deprecated 请使用 {@link nota.text.detector.CharsetDetector}（android-common 模块）。
  */
+@Deprecated
 public class CharsetDetector {
 
 //   Question: Should we have getters corresponding to the setters for input text

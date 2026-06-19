@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 
 group "tiiehenry.nota.toolkit"
-version "1.4"
+version "1.5"
 
 android {
     namespace = "nota.io.filej"

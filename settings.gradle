@@ -32,3 +32,6 @@ include ':android-widget-loadingview',
 
 include ':io-encodehelper',
         ':io-filej'
+
+include ':android-base',
+        ':android-fragment'

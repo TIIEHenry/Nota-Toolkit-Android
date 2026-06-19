@@ -1,0 +1,38 @@
+---
+description: 方案/ADR/roadmap 制定或模块架构疑难时，优先用强模型 subagent 评审把关
+alwaysApply: true
+---
+
+# 架构方案强模型评审
+
+## 触发条件
+
+遇到以下任一情况时**立即**启动强模型架构评审：
+
+1. **新建或大幅修订** `docs/architecture/`、`docs/decisions/`、`dev/roadmap/` 方案文档
+2. **架构疑难**：模块边界、Legacy 迁移、公开 API 契约、重复 API 合并策略
+3. 用户明确要求「制定方案」「写 ADR」「拆 roadmap」或「架构评审」
+
+## 动作
+
+1. 使用 **Task subagent**（`readonly: true`）做架构评审
+2. 评审输入须包含：待审文档路径、相关 `AGENTS.md` 约束、已有架构文档 / ADR / 代码对照
+3. Subagent 职责：模块边界合理性、与 Active/Legacy 分类一致性、消费方影响、可执行性
+
+## 输出
+
+- **默认**：先呈现评审报告（结论、问题清单、修订建议），经用户确认后再改文档
+- **用户说「更新文档」**：评审报告 + 直接修订文档（保持 frontmatter 规范）
+- 评审不得替代文档：方案 → ADR → roadmap 顺序不变
+
+## 不触发
+
+- 小 bugfix、单行 typo、格式微调
+- 纯编码实施（roadmap 任务已明确，无新架构决策）
+- 仅更新 `dev/progress/status.md` 勾选进度
+
+## 与开发流程对齐
+
+强模型用于**方案/ADR 质量把关**。流程仍为：
+
+`architecture` → `decision (ADR)` → `roadmap` → 编码 → `status.md`

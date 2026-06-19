@@ -6,7 +6,7 @@ group "tiiehenry.nota.toolkit"
 version "1.0"
 
 android {
-    namespace = "nota.ktx"
+    namespace = "nota.android.ktx"
 
     compileSdkVersion 36
 

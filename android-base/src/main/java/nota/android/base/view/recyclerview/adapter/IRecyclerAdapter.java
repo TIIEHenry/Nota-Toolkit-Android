@@ -1,0 +1,19 @@
+package nota.android.base.view.recyclerview.adapter;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import nota.android.base.view.base.adapter.IAdapter;
+import nota.android.base.view.base.holder.OnItemClickListener;
+import nota.android.base.view.base.holder.OnItemLongClickListener;
+import nota.android.base.view.recyclerview.holder.IRecyclerViewHolder;
+
+public interface IRecyclerAdapter<IADAPTER extends IRecyclerAdapter, DATATYPE, VH extends IRecyclerViewHolder> extends IAdapter<IADAPTER,DATATYPE> {
+
+    @NonNull
+    IADAPTER setOnItemClickListener(@Nullable OnItemClickListener<DATATYPE> listener);
+
+    @NonNull
+    IADAPTER setOnItemLongClickListener(@Nullable OnItemLongClickListener<DATATYPE> listener);
+
+}
